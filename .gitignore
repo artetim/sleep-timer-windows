@@ -1,0 +1,16 @@
+# Build outputs
+*.exe
+*.exe~
+*.test
+*.out
+dist/
+build/
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.vscode/
+.idea/
+__pycache__/
+*.pyc
