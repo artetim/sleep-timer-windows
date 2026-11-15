@@ -6,7 +6,7 @@
 - Repaints only the countdown area when the displayed second changes.
 - Avoids redrawing native input and button controls unnecessarily.
 - Preserves the existing English interface, icon, duration presets, and Windows sleep command.
-- Automated tests passed. Real Windows verification of this exact build is still pending.
+- Automated tests passed. The project owner verified v1.0.1 on Windows 10 and confirmed that the countdown no longer flickers.
 
 ## v1.0.0 (2026-11-13)
 
