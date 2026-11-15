@@ -34,8 +34,8 @@ The EXE is **unsigned**, so Windows SmartScreen may show an unknown-publisher wa
 
 | Item | Status |
 | --- | --- |
-| Windows 10 | Previous build tested by the project owner; sleep timer worked |
-| v1.0.1 countdown flicker fix | Automated tests passed, live Windows 10 verification pending |
+| Windows 10 | Tested by the project owner; sleep timer working |
+| v1.0.1 countdown flicker fix | Verified on Windows 10; no flickering reported |
 | Windows 11 | Not yet tested |
 | Architectures | x64 (64-bit) build provided |
 
