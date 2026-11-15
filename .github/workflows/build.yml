@@ -1,0 +1,46 @@
+name: Build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-x64:
+    runs-on: windows-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v7
+
+      - name: Set up Go
+        uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+          cache: false
+
+      - name: Run unit tests
+        run: go test -v ./...
+
+      - name: Static checks
+        run: go vet ./...
+
+      - name: Build icon-enabled EXE
+        shell: cmd
+        run: call build_windows.bat
+
+      - name: Check binary exists
+        shell: pwsh
+        run: |
+          if (!(Test-Path 'SleepTimer_v1.0.1.exe')) { throw 'Executable missing' }
+          Get-FileHash 'SleepTimer_v1.0.1.exe' -Algorithm SHA256 | Format-List
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: SleepTimer-Windows-x64
+          path: SleepTimer_v1.0.1.exe
+          if-no-files-found: error
